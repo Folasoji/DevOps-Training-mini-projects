@@ -1,0 +1,17 @@
+vboxuser@OlasojiUbuntu:~$ sudo -i
+[sudo] password for vboxuser:
+root@OlasojiUbuntu:~# cd /usr
+root@OlasojiUbuntu:/usr# mkdir photos
+root@OlasojiUbuntu:/usr# ls
+bin    include  lib32  libexec  local   sbin   src
+games  lib      lib64  libx32   photos  share
+root@OlasojiUbuntu:/usr# cd photos
+root@OlasojiUbuntu:/usr/photos# mkdir ubuntu_folder
+root@OlasojiUbuntu:/usr/photos# mkdir fedora_folder
+root@OlasojiUbuntu:/usr/photos# mkdir centos_folder
+root@OlasojiUbuntu:/usr/photos# ls
+centos_folder  fedora_folder  ubuntu_folder
+root@OlasojiUbuntu:/usr/photos# cd ubuntu_folder/
+root@OlasojiUbuntu:/usr/photos/ubuntu_folder# pwd
+/usr/photos/ubuntu_folder
+root@OlasojiUbuntu:/usr/photos/ubuntu_folder#
