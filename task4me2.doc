@@ -1,0 +1,7 @@
+To change the password of the newly created user: johndoe,
+I switched back to my user: sojy
+opened a terminal and applied this command: sudo passwd johndoe
+it prompted me for my password after which.
+it asked for new password for johndoe and a confirmation password. same was confirmed
+thereafter, I logged off and switched user to johndoe and inserted the newly changed password
+I signed in successfully to johndoe user with the newly changed password.
