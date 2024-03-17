@@ -1,0 +1,6 @@
+I logged out the existing terminal for my user: sojy
+I launched and signed in ubuntu with the new user I created with username: johndoe.
+I opened a new terminal and issued the command pwd which gave me /hpme/johndoe
+I used ls to list all files and folder in /home/johndoe
+I also used cd command to move from folders (desktop to documents)
+I used cd .. command to return to /home/johndoe.
