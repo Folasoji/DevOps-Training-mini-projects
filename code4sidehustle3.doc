@@ -1,0 +1,110 @@
+sojy@OlasojiUbuntu:~$ sudo groupadd devops
+[sudo] password for sojy: 
+sojy@OlasojiUbuntu:~$ grep devops /etc/group
+devops:x:1003:
+sojy@OlasojiUbuntu:~$ sudo adduser mary
+Adding user `mary' ...
+Adding new group `mary' (1001) ...
+Adding new user `mary' (1001) with group `mary' ...
+The home directory `/home/mary' already exists.  Not copying from `/etc/skel'.
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for mary
+Enter the new value, or press ENTER for the default
+	Full Name []: mary
+	Room Number []: 1
+	Work Phone []: +234811111111
+	Home Phone []: +234811111111
+	Other []: F
+Is the information correct? [Y/n] y
+sojy@OlasojiUbuntu:~$ sudo adduser mohammed
+Adding user `mohammed' ...
+Adding new group `mohammed' (1004) ...
+Adding new user `mohammed' (1002) with group `mohammed' ...
+The home directory `/home/mohammed' already exists.  Not copying from `/etc/skel'.
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for mohammed
+Enter the new value, or press ENTER for the default
+	Full Name []: mohammed
+	Room Number []: 2
+	Work Phone []: +234822222222
+	Home Phone []: +234822222222
+	Other []: M
+Is the information correct? [Y/n] y
+sojy@OlasojiUbuntu:~$ sudo adduser ravi
+Adding user `ravi' ...
+Adding new group `ravi' (1005) ...
+Adding new user `ravi' (1003) with group `ravi' ...
+The home directory `/home/ravi' already exists.  Not copying from `/etc/skel'.
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for ravi
+Enter the new value, or press ENTER for the default
+	Full Name []: ravi
+	Room Number []: 3
+	Work Phone []: +234833333333
+	Home Phone []: +234833333333
+	Other []: M
+Is the information correct? [Y/n] y
+sojy@OlasojiUbuntu:~$ sudo adduser tunji
+Adding user `tunji' ...
+Adding new group `tunji' (1006) ...
+Adding new user `tunji' (1004) with group `tunji' ...
+The home directory `/home/tunji' already exists.  Not copying from `/etc/skel'.
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for tunji
+Enter the new value, or press ENTER for the default
+	Full Name []: tunji
+	Room Number []: 4
+	Work Phone []: +234844444444
+	Home Phone []: +234844444444
+	Other []: M
+Is the information correct? [Y/n] y
+sojy@OlasojiUbuntu:~$ sudo adduser sofia
+Adding user `sofia' ...
+Adding new group `sofia' (1007) ...
+Adding new user `sofia' (1005) with group `sofia' ...
+The home directory `/home/sofia' already exists.  Not copying from `/etc/skel'.
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for sofia
+Enter the new value, or press ENTER for the default
+	Full Name []: sofia
+	Room Number []: 5
+	Work Phone []: +234855555555
+	Home Phone []: +234855555555
+	Other []: F
+Is the information correct? [Y/n] y
+sojy@OlasojiUbuntu:~$ sudo usermod -aG devops mary
+sojy@OlasojiUbuntu:~$ sudo usermod -aG devops mohammed
+sojy@OlasojiUbuntu:~$ sudo usermod -aG devops ravi
+sojy@OlasojiUbuntu:~$ sudo usermod -aG devops tunji
+sojy@OlasojiUbuntu:~$ sudo usermod -aG devops sofia
+sojy@OlasojiUbuntu:~$ grep devops /etc/group
+devops:x:1003:mary,mohammed,ravi,tunji,sofia
+sojy@OlasojiUbuntu:~$ sudo mkdir -p /home/mary/ubuntu_folder
+sojy@OlasojiUbuntu:~$ sudo mkdir -p /home/mohammed/fedora_folder
+sojy@OlasojiUbuntu:~$ sudo mkdir -p /home/ravi/centos_folder
+sojy@OlasojiUbuntu:~$ sudo mkdir -p /home/tunji/choco_folder
+sojy@OlasojiUbuntu:~$ sudo mkdir -p /home/sofia/docker_folder
+sojy@OlasojiUbuntu:~$ sudo chown :devops /home/mary/ubuntu_folder
+sojy@OlasojiUbuntu:~$ sudo chown :devops /home/mohammed/fedora_folder
+sojy@OlasojiUbuntu:~$ sudo chown :devops /home/ravi/centos_folder
+sojy@OlasojiUbuntu:~$ sudo chown :devops /home/tunji/choco_folder
+sojy@OlasojiUbuntu:~$ sudo chown :devops /home/sofia/docker_folder
+sojy@OlasojiUbuntu:~$ sudo ls -ld /home/*
+drwxr-x--- 14 mary     mary     4096 Mar 16 16:39 /home/johndoe
+drwxr-x--- 15 mary     mary     4096 Mar 16 19:35 /home/mary
+drwxr-x---  3 mohammed mohammed 4096 Mar 16 18:38 /home/mohammed
+drwxr-x---  3 ravi     ravi     4096 Mar 16 18:38 /home/ravi
+drwxr-x---  3 sofia    sofia    4096 Mar 16 18:44 /home/sofia
+drwxr-x--- 14 sojy     sojy     4096 Mar 17 08:32 /home/sojy
+drwxr-x--- 16 tunji    tunji    4096 Mar 16 19:36 /home/tunji
+sojy@OlasojiUbuntu:~$ 
