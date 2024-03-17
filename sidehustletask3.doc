@@ -1,0 +1,18 @@
+i createda group on the server namely: devops using CL: sudo groupadd devops
+I used the command cat /etc/group | devops to locate the created group but this not come-up
+so I used grep devops /etc/group and it popped up devops:x:1003
+i created 5 userd bamely: mary, mohammed, ravi, tunji and sofia using this command: sudo adduser (username) for each one of them
+I was prompted to create password for all the users and I also provided additional informations of the users
+note I tried to use a single command to create multiple user at once but did not work.
+to add the created users (mary, mohammed, ravi tunji and sofia) to the already created group (devops) i used
+the command sudo usermod -aG devops username for each user.
+to create a folder for each user in their home directory, used the command: sudo mkdir -p /home/mary/ubuntu_folder
+sudo mkdir -p /home/mohammed/fedora_folder, sudo mkdir -p /home/ravi/centos_folder, sudo mkdir -p /home/tunji/choco_folder
+sudo mkdir -p /home/sofia/docker_folder.
+to ensure the group ownership of each created folder belong to devops, I used the command 
+sudo chown :devops /home/mary/ubunt_folder, sudo chown :devops /home/mohammed/fedora_folder, 
+sudo chown :devops /home/ravi/centos_folder, sudo chown :devops /home/tunji/choco_folder
+sudo chown :devops /home/sofia/docker_folder
+I issued the command sudo ls -ld /home/* to view all users and the folder ownership.
+final command was to delete all users created and the devops group using these command respectively
+sudo userdel username and I was prompted to confirm my password. sudo groupdel devops
