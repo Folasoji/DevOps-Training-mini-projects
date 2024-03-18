@@ -1,4 +1,4 @@
-i createda group on the server namely: devops using CL: sudo groupadd devops
+i createda group on the server namely: devops using CL: sudo groupadd devops. I used the command cut -d: -f1 /etc/passwd to view all users existing.
 I used the command cat /etc/group | devops to locate the created group but this not come-up
 so I used grep devops /etc/group and it popped up devops:x:1003
 i created 5 userd bamely: mary, mohammed, ravi, tunji and sofia using this command: sudo adduser (username) for each one of them

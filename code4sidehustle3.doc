@@ -107,4 +107,8 @@ drwxr-x---  3 ravi     ravi     4096 Mar 16 18:38 /home/ravi
 drwxr-x---  3 sofia    sofia    4096 Mar 16 18:44 /home/sofia
 drwxr-x--- 14 sojy     sojy     4096 Mar 17 08:32 /home/sojy
 drwxr-x--- 16 tunji    tunji    4096 Mar 16 19:36 /home/tunji
-sojy@OlasojiUbuntu:~$ 
+sojy@OlasojiUbuntu:~$ sudo userdel mary
+sojy@OlasojiUbuntu:~$ sudo userdel mohammed
+sojy@OlasojiUbuntu:~$ sudo userdel ravi
+sojy@OlasojiUbuntu:~$ sudo userdel tunji
+sojy@OlasojiUbuntu:~$ sudo userdel sofia
