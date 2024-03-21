@@ -1,0 +1,29 @@
+sojy@OlasojiUbuntu:~$ cd Desktop
+sojy@OlasojiUbuntu:~/Desktop$ wget https://webapps.lehigh.edu/hpc/training/Shell-Scripting-1.pdf
+--2024-03-21 18:03:15--  https://webapps.lehigh.edu/hpc/training/Shell-Scripting-1.pdf
+Resolving webapps.lehigh.edu (webapps.lehigh.edu)... 128.180.2.40
+Connecting to webapps.lehigh.edu (webapps.lehigh.edu)|128.180.2.40|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 451014 (440K) [application/pdf]
+Saving to: ‘Shell-Scripting-1.pdf’
+Shell-Scripting-1.p 100%[===================>] 440.44K  52.6KB/s    in 8.6s    
+2024-03-21 18:03:26 (51.4 KB/s) - ‘Shell-Scripting-1.pdf’ saved [451014/451014]
+sojy@OlasojiUbuntu:~/Desktop$ ls
+learning_linux  Shell-Scripting-1.pdf  somefile
+sojy@OlasojiUbuntu:~/Desktop$ mv Shell-Scripting-1.pdf shell-script.pdf
+sojy@OlasojiUbuntu:~/Desktop$ ls -ltr
+total 452
+-rw-rw-r-- 1 sojy sojy 451014 Jul 16  2018 shell-script.pdf
+-rwxrwxr-x 1 sojy sojy    487 Mar 19 08:30 learning_linux
+-rw-rw-r-- 1 sojy sojy     33 Mar 19 08:42 somefile
+sojy@OlasojiUbuntu:~/Desktop$ du -h shell-script.pdf
+444K	shell-script.pdf
+sojy@OlasojiUbuntu:~/Desktop$ cp shell-script.pdf shell-script.pdf1
+sojy@OlasojiUbuntu:~/Desktop$ cp shell-script.pdf shell-script.pdf3
+sojy@OlasojiUbuntu:~/Desktop$ ls -l
+total 1340
+-rwxrwxr-x 1 sojy sojy    487 Mar 19 08:30 learning_linux
+-rw-rw-r-- 1 sojy sojy 451014 Jul 16  2018 shell-script.pdf
+-rw-rw-r-- 1 sojy sojy 451014 Mar 21 18:10 shell-script.pdf1
+-rw-rw-r-- 1 sojy sojy 451014 Mar 21 18:11 shell-script.pdf3
+-rw-rw-r-- 1 sojy sojy     33 Mar 19 08:42 somefile
