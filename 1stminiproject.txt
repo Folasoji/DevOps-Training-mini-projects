@@ -1,0 +1,20 @@
+1.	I learnt how to create a virtual server on AWS using EC2.
+2.	First, I logged into AWS (aws.amazon.com) after creating a free account.
+3.	I searched EC2, and clicked on it. Thereafter, I clicked on launch instance.
+4.	I gave my server a name (MYEC2SERVER).
+5.	Using instances, instance type, I chose Ubuntu as my AMI (Amazon Machine Images) ensuring to use the free tier to avoid me paying.
+6.	For the instance type, I chose free tier (t3.micro) 
+7.	I left my network settings at default. 
+8.	For the key pair, I created a new key pair, although during the process I did not take note of the download as soon as I created the key pair. However, I back-tracked and got it right. 
+9.	under the security group, I initially chose "select existing security group", but ran into trouble when it was time to connect to the server. I had to terminate and delete the instance and launched another instance, this time I chose "create security group", and was able to launch my instance successfully.
+10.	I used command prompt on my windows OS using ssh (a secure shell protocol) to connect to remote server (instance EC2) on AWS. while at this I encounter challenges and I contacted @Support team on slack and I was sent a video to watch which was helpful. 
+11.	furthermore, I had error messages when I ran the ssh command on my command prompt. one of the errors was " ssh connect to host 13.48.147.117 port: 22 connections timed out". 
+12.	I discovered later that it was security setting issues on my instance. I went to my security group and edit inbound rules. I modified the source from custom to anywhere to enable access to the server. 
+13.	After that was sorted, I soon got another error message "permission denied (publickey) this was because I used a wrong username (ec2-user) instead of Ubuntu. 
+14.	After I watched a video on U-tube, I understood and I made correction. I ran the correct command: 
+15.	ssh -i C: \Users\PC\Downloads\MYEC2SSH.pem Ubuntu@13.48.148.117. and I got it this time.
+16.	I ran the sudo apt command to check for update, I ran upgrade using sudo apt upgrade. I installed tree using sudo apt install tree. 
+17.	It was fun and easy because I have used all these commands on ubuntu terminal using VM. 
+18.	The installation was successful. I also installed nginx using the command sudo apt install nginx. I ran a command tree and it gave me all the folders, so many.
+19.	In conclusion, I can create instances on EC2 without errors and faster than before. Secondly, I understand how to use commands as I learnt under the topic introduction to Linux. 
+20.	I know how to make and remove directories (folders), pwd, ls. cat, cp cd, etc, and flags as well. This is indeed a project-based learning and I am loving it.
