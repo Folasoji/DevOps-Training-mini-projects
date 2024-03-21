@@ -27,3 +27,71 @@ total 1340
 -rw-rw-r-- 1 sojy sojy 451014 Mar 21 18:10 shell-script.pdf1
 -rw-rw-r-- 1 sojy sojy 451014 Mar 21 18:11 shell-script.pdf3
 -rw-rw-r-- 1 sojy sojy     33 Mar 19 08:42 somefile
+sojy@OlasojiUbuntu:~/Desktop$ du -h shell*
+444K	shell-script.pdf
+444K	shell-script.pdf1
+444K	shell-script.pdf3
+sojy@OlasojiUbuntu:~/Desktop$ tar -cvf archived1.tar shell*
+shell-script.pdf
+shell-script.pdf1
+shell-script.pdf3
+sojy@OlasojiUbuntu:~/Desktop$ ls -l
+total 2672
+-rw-rw-r-- 1 sojy sojy 1361920 Mar 21 18:15 archived1.tar
+-rwxrwxr-x 1 sojy sojy     487 Mar 19 08:30 learning_linux
+-rw-rw-r-- 1 sojy sojy  451014 Jul 16  2018 shell-script.pdf
+-rw-rw-r-- 1 sojy sojy  451014 Mar 21 18:10 shell-script.pdf1
+-rw-rw-r-- 1 sojy sojy  451014 Mar 21 18:11 shell-script.pdf3
+-rw-rw-r-- 1 sojy sojy      33 Mar 19 08:42 somefile
+sojy@OlasojiUbuntu:~/Desktop$ du -h archived1.tar 
+1.4M	archived1.tar
+sojy@OlasojiUbuntu:~/Desktop$ tar -tvf archived1.tar 
+-rw-rw-r-- sojy/sojy    451014 2018-07-16 16:01 shell-script.pdf
+-rw-rw-r-- sojy/sojy    451014 2024-03-21 18:10 shell-script.pdf1
+-rw-rw-r-- sojy/sojy    451014 2024-03-21 18:11 shell-script.pdf3
+sojy@OlasojiUbuntu:~/Desktop$ ls -l
+total 2672
+-rw-rw-r-- 1 sojy sojy 1361920 Mar 21 18:15 archived1.tar
+-rwxrwxr-x 1 sojy sojy     487 Mar 19 08:30 learning_linux
+-rw-rw-r-- 1 sojy sojy  451014 Jul 16  2018 shell-script.pdf
+-rw-rw-r-- 1 sojy sojy  451014 Mar 21 18:10 shell-script.pdf1
+-rw-rw-r-- 1 sojy sojy  451014 Mar 21 18:11 shell-script.pdf3
+-rw-rw-r-- 1 sojy sojy      33 Mar 19 08:42 somefile
+sojy@OlasojiUbuntu:~/Desktop$ bzip2 archived1.tar
+sojy@OlasojiUbuntu:~/Desktop$ ls -l
+total 2308
+-rw-rw-r-- 1 sojy sojy 990569 Mar 21 18:15 archived1.tar.bz2
+-rwxrwxr-x 1 sojy sojy    487 Mar 19 08:30 learning_linux
+-rw-rw-r-- 1 sojy sojy 451014 Jul 16  2018 shell-script.pdf
+-rw-rw-r-- 1 sojy sojy 451014 Mar 21 18:10 shell-script.pdf1
+-rw-rw-r-- 1 sojy sojy 451014 Mar 21 18:11 shell-script.pdf3
+-rw-rw-r-- 1 sojy sojy     33 Mar 19 08:42 somefile
+sojy@OlasojiUbuntu:~/Desktop$ du -h archived1.tar.bz2 
+968K	archived1.tar.bz2
+sojy@OlasojiUbuntu:~/Desktop$ bunzip2 archived1.tar.bz2 
+sojy@OlasojiUbuntu:~/Desktop$ ls -l
+total 2672
+-rw-rw-r-- 1 sojy sojy 1361920 Mar 21 18:15 archived1.tar
+-rwxrwxr-x 1 sojy sojy     487 Mar 19 08:30 learning_linux
+-rw-rw-r-- 1 sojy sojy  451014 Jul 16  2018 shell-script.pdf
+-rw-rw-r-- 1 sojy sojy  451014 Mar 21 18:10 shell-script.pdf1
+-rw-rw-r-- 1 sojy sojy  451014 Mar 21 18:11 shell-script.pdf3
+-rw-rw-r-- 1 sojy sojy      33 Mar 19 08:42 somefile
+sojy@OlasojiUbuntu:~/Desktop$ rm shell*
+sojy@OlasojiUbuntu:~/Desktop$ ls -l
+total 1340
+-rw-rw-r-- 1 sojy sojy 1361920 Mar 21 18:15 archived1.tar
+-rwxrwxr-x 1 sojy sojy     487 Mar 19 08:30 learning_linux
+-rw-rw-r-- 1 sojy sojy      33 Mar 19 08:42 somefile
+sojy@OlasojiUbuntu:~/Desktop$ tar -xvf archived1.tar 
+shell-script.pdf
+shell-script.pdf1
+shell-script.pdf3
+sojy@OlasojiUbuntu:~/Desktop$ ls -l
+total 2672
+-rw-rw-r-- 1 sojy sojy 1361920 Mar 21 18:15 archived1.tar
+-rwxrwxr-x 1 sojy sojy     487 Mar 19 08:30 learning_linux
+-rw-rw-r-- 1 sojy sojy  451014 Jul 16  2018 shell-script.pdf
+-rw-rw-r-- 1 sojy sojy  451014 Mar 21 18:10 shell-script.pdf1
+-rw-rw-r-- 1 sojy sojy  451014 Mar 21 18:11 shell-script.pdf3
+-rw-rw-r-- 1 sojy sojy      33 Mar 19 08:42 somefile
