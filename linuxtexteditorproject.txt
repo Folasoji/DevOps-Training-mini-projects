@@ -1,0 +1,6 @@
+I learnt to use the vim text editor and nano text editor.
+1. I was able to create files using both vim and nano. using the command: vim exercise.txt and nano nano_project.txt respectively.
+2. With the above commands, I was taken straight to a text environment. For vim I used i button on my keyboard to insert mode so I could type text. I used, (h,j,k and l) buttons to move up, down left and right. I also used x, dd and u commands to delete a letter, a whole line and undo previous command respectively. This I did when I had exited the insert mode with esc button.
+3. I used :wq to save and exit the editor by clicking enter button. I also learnt :q! for quit without saving.
+4. for the nano editor, it was pretty straight forward. I typed and saved using ctrl+o to save and ctrl+x to exit.
+%. lastly, I tried to enter an existing nano file with command: nano nano_project.txt.
