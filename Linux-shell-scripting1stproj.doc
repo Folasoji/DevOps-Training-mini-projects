@@ -1,0 +1,40 @@
+sojy@OlasojiUbuntu:~$ mkdir shell-scripting
+sojy@OlasojiUbuntu:~$ ls
+Desktop      file1  nano_project.txt  shell-scripting
+Documents    file2  Pictures          snap
+Downloads    file3  Public            Templates
+exerice.txt  Music  shellscript2.sh   Videos
+sojy@OlasojiUbuntu:~$ cd shell-scripting
+sojy@OlasojiUbuntu:~/shell-scripting$ vim my_first_shell_script.sh
+sojy@OlasojiUbuntu:~/shell-scripting$ ls -latr
+total 12
+-rw-rw-r--  1 sojy sojy  191 Mar 25 21:38 my_first_shell_script.sh
+drwxr-x--- 15 sojy sojy 4096 Mar 25 21:38 ..
+drwxrwxr-x  2 sojy sojy 4096 Mar 25 21:38 .
+sojy@OlasojiUbuntu:~/shell-scripting$ ./my_first_shell_script.sh
+bash: ./my_first_shell_script.sh: Permission denied
+sojy@OlasojiUbuntu:~/shell-scripting$ chmod +x my_first_shell_script.sh
+sojy@OlasojiUbuntu:~/shell-scripting$ ls -latr
+total 12
+-rwxrwxr-x  1 sojy sojy  191 Mar 25 21:38 my_first_shell_script.sh
+drwxr-x--- 15 sojy sojy 4096 Mar 25 21:38 ..
+drwxrwxr-x  2 sojy sojy 4096 Mar 25 21:38 .
+sojy@OlasojiUbuntu:~/shell-scripting$ vim my_first_shell_script.sh
+sojy@OlasojiUbuntu:~/shell-scripting$ ./my_first_shell_script.sh
+[sudo] password for sojy: 
+sojy@OlasojiUbuntu:~/shell-scripting$ ls
+Folder1  Folder2  Folder3  my_first_shell_script.sh
+sojy@OlasojiUbuntu:~/shell-scripting$ id user1
+uid=1001(user1) gid=1001(user1) groups=1001(user1)
+sojy@OlasojiUbuntu:~/shell-scripting$ id user2
+uid=1002(user2) gid=1004(user2) groups=1004(user2)
+sojy@OlasojiUbuntu:~/shell-scripting$ id user3
+uid=1003(user3) gid=1005(user3) groups=1005(user3)
+sojy@OlasojiUbuntu:~/shell-scripting$ cd ..
+sojy@OlasojiUbuntu:~$ name=soji
+sojy@OlasojiUbuntu:~$ echo $name
+soji
+sojy@OlasojiUbuntu:~$ name="soji"
+sojy@OlasojiUbuntu:~$ echo My name is $name
+My name is soji
+sojy@OlasojiUbuntu:~$
