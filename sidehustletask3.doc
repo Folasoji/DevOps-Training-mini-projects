@@ -14,5 +14,6 @@ sudo chown :devops /home/mary/ubunt_folder, sudo chown :devops /home/mohammed/fe
 sudo chown :devops /home/ravi/centos_folder, sudo chown :devops /home/tunji/choco_folder
 sudo chown :devops /home/sofia/docker_folder
 I issued the command sudo ls -ld /home/* to view all users and the folder ownership.
+I used the command sudo ls -l /home/* to view all folders ownership.
 final command was to delete all users created and the devops group using these command respectively
 sudo userdel username and I was prompted to confirm my password. sudo groupdel devops
