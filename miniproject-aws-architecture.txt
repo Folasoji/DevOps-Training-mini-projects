@@ -1,0 +1,32 @@
+MINI PROJECT: CREATING A VPC ON AWS MANAGEMENT CONSOLE
+
+1.	I signed on to AWS management console, searched for VPC service. I clicked on your VPC in the VPC menu, and I clicked on create VPC. Note that I found a default VPC, but I selected create VPC to enable me create my own VPC.
+2.	I selected the VPC only, gave it a name tag “my-test-vpc”, I selected IPv4 CIDR manual input.
+3.	I selected an IPv4 CIDR range for my VPC to be; 17.0.0.0/16.
+4.	After that, I left other things as default.
+5.	I clicked create VPC, here is the response; “You successfully created vpc-0ed5c0f21d8002438 / my-test-vpc”.
+               vpc-0ed5c0f21d8002438 / my-test-vpc.
+
+CREATING SUBNETS ON AWS MANAGEMENT CONSOLE
+
+1.	I navigated to VPC service and selected subnets, then I clicked on the drop-down filter by VPC and selected the VPC I earlier created. The feedback shows me that I do not have any subnets created.
+2.	I clicked on the button create subnet on top right of the console. Under VPC ID, I clicked on the drop-down and selected my earlier created VPC, I chose the subnet name my-test-subnet-01. For the availability zone, I chose us-east-1a.
+3.	For IPv4 subnet CIDR block, I chose 17.0.0.0/24.
+4.	I clicked on create.
+5.	I repeated the process to create another subnet named my-test-subnet-02 and I chose another availability zone us-east-1b. I used 17.0.1.0/24 IPv4 subnet CIDR block. And clicked create.
+6.	In conclusion, my Available IPv4 addresses show 251 on the subnet.
+
+CREATING INTERNET GATEWAY AND NAT GATEWAY WITH ROUTE TABLE CONFIGURATION.
+
+1.	On my AWS management console, I navigated to VPC service, and clicked on internet gateways, and clicked on create internet gateway. I chose the name igw-test, and clicked on create internet gateway.
+2.	When I clicked on the internet gateways, I saw the created gateway is detached. I clicked on the created internet gateway ID, and I clicked action, and selected attached to VPC. Under available VPC, I chose the VPC I had created earlier, and I clicked on attach internet gateway.
+3.	When I checked my internet gateway again, it is now attached to my VPC.
+4.	To create a NAT Gateways, I clicked on create Nat Gateway button. I chose a name my-nat-gw-public, and selected my public created subnet, connectivity type, public. I clicked on allocate elastic IP and it generated an elastic IP and I selected same. I clicked create nat gateway.
+5.	To create route table, I went to my VPC dashboard, I clicked on route table, and clicked create route table button. I chose a name my-rt-public, and I selected my created VPC. I clicked create route table.
+6.	I clicked edit routes, to enable a route to internet through the internet gateway. I clicked add route and selected destination IP to be 0.0.0.0/0 and the target as internet gateway, thereafter, I selected the internet gateway public, and saved changes.
+7.	To associate the public subnet to my route table, I clicked on route table, clicked on the public my public route table, I clicked on subnet association, and clicked on edit subnet association. I selected the public subnet and clicked on save association.
+8.	To create a route table for my private subnet, I went back to my VPC dashboard, and clicked on route table, I clicked on create route table. I chose the name my-rt-private and selected my VPC earlier created. I clicked create route table button.
+9.	To create a subnet association, I clicked on subnet association I clicked edit subnet association. I selected the private subnet and saved changes.
+
+
+
