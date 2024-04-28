@@ -1,0 +1,42 @@
+MINI PROJECT: VPC PEERING WITH SECURITY GROUPCONFIGURATION
+1.	Firstly, I sign on to my AWS management console, search for VPC service, I created the first VPC named VPC-A with IPv4 CIDR= 12.0.0.0/16. In the same vein, I created the second VPC named VPC-B with IPv4 CIDR= 13.0.0.0/16.
+2.	Next, I created two route tables, one each for the VPCs created to help route traffic to my VPCs accordingly. I clicked on the route table on the menu and clicked create route table. I used the name ttest-rt-vpc-A and linked it to my VPC-A and clicked create route table. I did same for creating the second route table for VPC-B and used the name ttest-rt-vpc-B.
+3.	Thirdly, I created two subnets; the first one named test-subnet-vpc-A-1a, AZ= us-east-1a and IPv4 CIDR Block= 12.0.1.0/24. For the second subnet; name=test-subnet-vpc-B-1a, AZ= us-east-1a and IPv4 CIDR Block=13.0.1.0/24. The first subnet linked to VPC-A while the second subnet is linked to VPC-B.
+4.	Next, I associated my route tables with my subnets. I went back to the VPC dashboard and selected route table and selected the ID of ttest-rt-vpc-A route table, I clicked on subnet associations, then edit subnet associations. Check the subnet for VPC-A and save changes. I need internet gateway to grant me access to the internet, so I created IGW, and I attached it to my VPC-A.
+5.	Furthermore, I need to connect my ttest-rt-vpc-A to my internet gate way. I clicked route, edit route, add route choose from any where (0.0.0.0/0) and target= internet gate way and I selected the created internet gateway and saved changes.
+6.	I created IGW for VPC-B, and I attached it to vpc-B. I also associated my second subnet to my second route table. I connected the second internet gate way to the route table.
+7.	I launched an EC2 instance for VPC-A, for the network, I selected VPC-A and its subnet and enabled auto assigned public IP. Under security group I added another rule for http, port 80, anywhere. Under advanced detail, I inserted a script to install apache, boot-up my EC2 instance, update the home page of my apache and restart the apache. See the script used;
+
+#!/bin/bash
+
+sudo apt update
+sudo apt install apache2 -y
+echo "<h1>Server Details</h1><p><strong>Hostname:</strong> $(hostname)</p><p><strong>IP Address:</strong> $(hostname -I | cut -d' ' -f1)</p>" | sudo tee /var/www/html/index.html
+sudo systemctl restart apache2
+8.	Then I launched my instance. To test, I copied the public ID: http: 34.235.140.247 from my EC2 instance, and pasted on the web. This is the feedback;
+
+Server Details
+Hostname: ip-12-0-1-95
+IP Address: 12.0.1.95
+9.	I setup a second EC2 instance for my second VPC following the same process. After creation, I copied the public IP address from the second EC2 instance; 100.24.25.82, and pasted same on the web and got this feedback;
+
+Server Details
+Hostname: ip-13-0-1-31
+IP Address: 13.0.1.31
+10.	You would observe that the IPv4 CIDR chosen for my first VPC-A = 12.0.0.0/16 and the second VPC-B =13.0.0.0/16. This shows that my apache was installed successfully.
+11.	Furthermore, I created a peering between the 2 VPCs; I went back the VPC dashboard and selected peering connections. I clicked on create peering connection, inputted all the setting and created same. I got notification “pending acceptance”. I clicked action, clicked on accept request. 
+12.	I was prompted to modify my route table. I went to my first route table and click on edit route, add route, for destination I used IPv4 CIDR for the second VPC (13.0.0.0/16) and the target is peer connection and I selected the peer connection I created and saved changes. I reversed the process for the VPC-B. destination chosen was: 12.0.0.0/16 and target peering connection.
+13.	Next was SSH into each other; after SSH into my two instances, from my first instance, I used curl and private IP of the second EC2. See response;
+
+ubuntu@ip-12-0-1-95:~$ curl 13.0.1.31
+<h1>Server Details</h1><p><strong>Hostname:</strong> ip-13-0-1-31</p><p><strong>IP Address:</strong> 13.0.1.31</p>
+ubuntu@ip-12-0-1-95:~$
+for the second instance, I used the private IP of the first instance and curl;
+
+
+
+ubuntu@ip-13-0-1-31:~$ curl 12.0.1.95.
+this was fun
+
+<h1>Server Details</h1><p><strong>Hostname:</strong> ip-12-0-1-95</p><p><strong>IP Address:</strong> 12.0.1.95</p>
+ubuntu@ip-13-0-1-31:~$
