@@ -1,0 +1,69 @@
+DEPLOYING ALB WITH TWO EC2 INSTANCE
+
+1.	I signed into my AWS management console and searched, VPC service, I clicked create VPC. I used IPv4 CIDR = 16.0.0.0/16.
+2.	Secondly, I created an internet gateway, and attached it to the created VPC.
+3.	I created 2 public subnets and I used IPv4 CIDR = 16.0.1.0/24 and 16.0.2.0/24 respectively. Also, I attached them to different AZs.
+4.	I created a route table to associate my two public subnets to it. Also, I edited the route to allow the internet gateway provide internet access to the subnets. I connected them to the internet gateway.
+5.	I created 2 EC2 instances. Assigned each one to a subnet. The AMI used was Linux because of the shell script provided. For my network settings, I used the created VPC and subnets. For my inbound security group rule, I added http, port: 80 to the existing one. I went to advanced details and pasted the bash script I downloaded from the link provided me for this project. Then I launched the instances.
+6.	As soon as my instances are running, I copied the public Ips (3.91.20.200 and 54.208.250.139) of the instances and checked it out on my browser, see the feedback I got;
+It works!
+7.	Target group creation is next. I clicked on the EC2 dashboard, under load balancing menu, I clicked on target group. I clicked on create target group button, and chose instances, I gave mt target group a name, I selected the VPC I earlier created. For health check, I left it as default. I selected the two running instances and selected include as pending below, and I clicked on the button create target group. This was successful.
+8.	Next, is creation of my application load balancer. On my EC2 dashboard, I scroll down to and clicked on load balancer, clicked on create load balancer, there are three types, I selected ALB, and clicked create. I gave it a name, selected the created VPC and the two created subnets. For the security group I adopted the default and created one more security group, for accepting http request. I clicked on create a new security group, and created allowing http in port 80 for internet access. I selected both the default and newly created security groups. Under listeners and routing, I selected the already created target group, and clicked create load balancer;
+Summary
+Review and confirm your configurations. Estimate cost 
+Basic configuration
+Edit
+mytest-lb-ec2
+•	Internet-facing
+•	IPv4
+Security groups
+Edit
+•	Mytest-sg-for-alb
+sg-09b1518a880ee0608 
+default
+sg-0734ff131083ff912 
+Network mapping
+Edit
+VPC
+vpc-0d63cf1afe20b8012 
+my-test-vpc
+•	us-east-1a
+subnet-0caac286073ac7ea3 
+•  my-test-subnet-1a
+•  us-east-1b
+subnet-06f38ee76803ae6a8 
+•	my-test-subnet-1b
+Listeners and routing
+Edit
+•	HTTP:80 
+defaults to
+mytest-ec2-alb-tg 
+9.	As soon as the ALB becomes active, I clicked on the ID and copied the DNS name (mytest-lb-ec2-50424301.us-east-1.elb.amazonaws.com), pasted on the web to get feedback. See response;
+It works!
+10.	To run further test, I ssh into the two instances and run some tests; sudo tail -f /var/log/httpd/access_log. The response from both server is the same and I checked the monitor of the load balance on my AWS console.
+11.	Using top command;
+
+[ec2-user@ip-16-0-1-223 ~]$ top
+top - 12:25:34 up  1:32,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks: 109 total,   1 running, 108 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 s
+MiB Mem :    949.6 total,     74.0 free,    323.0 used,    552.6 buff
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    474.2 avai
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM 
+  31372 ec2-user  20   0  223904   3364   2712 R   0.3   0.3 
+      1 root      20   0  171248  16072   9180 S   0.0   1.7 
+      2 root      20   0       0      0      0 S   0.0   0.0 
+      3 root       0 -20       0      0      0 I   0.0   0.0 
+      4 root       0 -20       0      0      0 I   0.0   0.0 
+      5 root       0 -20       0      0      0 I   0.0   0.0 
+      6 root       0 -20       0      0      0 I   0.0   0.0 
+      8 root       0 -20       0      0      0 I   0.0   0.0 
+     10 root       0 -20       0      0      0 I   0.0   0.0 
+     11 root      20   0       0      0      0 I   0.0   0.0 
+     12 root      20   0       0      0      0 I   0.0   0.0 
+     13 root      20   0       0      0      0 I   0.0   0.0 
+     14 root      20   0       0      0      0 S   0.0   0.0 
+     15 root      20   0       0      0      0 I   0.0   0.0 
+     16 root      rt   0       0      0      0 S   0.0   0.0 
+     18 root      20   0       0      0      0 S   0.0   0.0 
+     20 root      20   0       0      0      0 S   0.0   0.0
