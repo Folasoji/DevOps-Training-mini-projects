@@ -1,0 +1,18 @@
+CONFIGURING AWS ROUTE 53 WITH EC2 INSTANCE AS THE SOURCE
+1.	Create a Hosted Zone; 
+•	I logged into the AWS management console, and searched for the service Route 53.
+•	Clicked on create hosted zone, I chose a domain name, chose a public hosted zone and clicked create a hosted zone.
+•	These are the nameservers provide by the created hosted zone;
+ns-1958.awsdns-52.co.uk.
+ns-855.awsdns-42.net.
+ns-277.awsdns-34.com.
+ns-1379.awsdns-44.org.
+2.	Configure DNS Server;
+•	First, I created an EC2 instance to enable me access to a public IP of the instance.
+•	In the hosted zone earlier created, I clicked on create record. I selected A-routes traffic to an IPv4address and some AWS resources. I chose simple routing and inserted the public IP of my EC2. I clicked create record.
+
+3.	Associate DNS Records with EC2 instance;
+•	I created another record CNAME.
+•	I could not buy domain name on godaddy to insert my nameserver.
+
+4.	Test was carried out with domain name and my EC2 elastic IP and it worked.
