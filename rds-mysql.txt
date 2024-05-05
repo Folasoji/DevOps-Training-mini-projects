@@ -1,0 +1,11 @@
+MINI PROJECT: SETTING UP AMAZON RDS WITH MYSQL ENGINE
+
+1.	Create RDS instance; I logged in to AWS management console, and searched on the service bar for RDS. I clicked on db instance, and then clicked on create database. I selected standard create, for engine option, I selected MySQL, I selected the latest available version of MySQL (8.0.36). For the template, I chose free tier. Under settings, I chose the instance name. for the credential setting, I chose a username and created my password. For instance, configuration, I chose 2vCPU and 1GB RAM. For connectivity, I chose the default, same with for network. For VPC and subnet, I used the default. I selected public access. Then I clicked on create database.
+2.	I selected the instance ID, and clicked on edit inbound rule. I added http on port 80, and MySQL/Aurora on port 3306 and saved changes.
+3.	I downloaded MySQL installer for windows and installed same. Thereafter, I created a database;
+11:39:04	create database sampledb	1 row(s) affected	0.219 sec
+11:39:49	use sampledb	0 row(s) affected	0.015 sec
+11:47:11	CREATE TABLE users (     id INT PRIMARY KEY,     name VARCHAR(255) )	0 row(s) affected	1.015 sec
+11:47:24	INSERT INTO users (id, name) VALUES (1, 'John'), (2, 'Alice')	2 row(s) affected Records: 2  Duplicates: 0  Warnings: 0	0.171 sec
+11:53:34	SELECT * FROM users LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
+
